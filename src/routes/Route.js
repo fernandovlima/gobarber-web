@@ -11,7 +11,7 @@ export default function RouteWrapper({
   isPrivate,
   ...rest
 }) {
-  const signed = true;
+  const signed = false;
   // se nao logado e rota privada redireciona para o login
   if (!signed && isPrivate) {
     return <Redirect to="/" />;
