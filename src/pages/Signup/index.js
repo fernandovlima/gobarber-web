@@ -5,16 +5,17 @@ import * as Yup from 'yup';
 
 import logo from '~/assets/logo.svg';
 
+const schema = Yup.object().shape({
+  name: Yup.string().required('name required'),
+  email: Yup.string()
+    .email('invalid e-mail')
+    .required('email is required'),
+  password: Yup.string()
+    .min(6, 'Password must have at least 6 characters')
+    .required('password required'),
+});
+
 export default function Signup() {
-  const schema = Yup.object().shape({
-    name: Yup.string().required('name required'),
-    email: Yup.string()
-      .email('invalid e-mail')
-      .required('email is required'),
-    password: Yup.string()
-      .min(6, 'Password must have at least 6 characters')
-      .required('password required'),
-  });
   function handleSubmit(data) {
     console.tron.log(data);
   }
