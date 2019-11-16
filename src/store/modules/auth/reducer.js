@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 
 export default function auth(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case '@cart/SIGN_IN_SUCSSESS':
+    case '@cart/SIGN_IN_SUCCESS':
       return produce(state, draft => {
         draft.token = action.payload.token;
         draft.signed = true;
