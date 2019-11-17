@@ -22,6 +22,9 @@ export function* signIn({ payload }) {
       return;
     }
 
+    // seta o token para todas as reqs feitas para a api
+    api.defaults.headers.Authorization = `Beares ${token}`;
+
     yield put(signInSuccess(token, user));
 
     history.push('/dashboard');
@@ -49,7 +52,18 @@ export function* signUp({ payload }) {
   }
 }
 
+// seta o token para quando o usuario recarregar pagina.
+export function setToken({ payload }) {
+  if (!payload) return;
+  const { token } = payload.auth;
+
+  if (token) {
+    // seta o token para todas as reqs feitas para a api
+    api.defaults.headers.Authorization = `Beares ${token}`;
+  }
+}
 export default all([
+  takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
 ]);
