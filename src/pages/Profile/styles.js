@@ -1,19 +1,9 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Wrapper = styled.div`
-  height: 100%;
-  background: linear-gradient(-95deg, #7159c1, #a892f1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Content = styled.div`
-  width: 100%;
-  max-width: 315px;
-  text-align: center;
+export const Container = styled.div`
+  max-width: 600px;
+  margin: 50px auto;
 
   form {
     display: flex;
@@ -43,6 +33,12 @@ export const Content = styled.div`
     letter-spacing: 0.5px;
   }
 
+  hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    margin: 10px 0 20px;
+  }
   button {
     height: 44px;
     background: #ffbc49;
@@ -55,17 +51,6 @@ export const Content = styled.div`
 
     &:hover {
       background: ${darken(0.07, '#ffbc49')};
-    }
-  }
-
-  a {
-    color: #fff;
-    margin-top: 15px;
-    font-size: 14px;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
     }
   }
 `;
